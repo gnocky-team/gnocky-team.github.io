@@ -1,0 +1,19 @@
+.app--backdrop-visible {
+    overflow: hidden;
+}
+
+.app__backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: var(--backdrop-z);
+    background-color: rgb(from var(--backdrop-bg) r g b / var(--backdrop-bg-alpha));
+    backdrop-filter: blur(var(--backdrop-backdrop-blur));
+}
+
+.app--backdrop-visible .app__backdrop {
+    display: block;
+}

@@ -1,0 +1,31 @@
+---
+import config from "@/config/site";
+import { type LayoutProps } from '@/layouts/types';
+import Layout from '@/layouts/Main.astro';
+
+
+const layoutProps: LayoutProps = {
+    title: 'Acerca de',
+    description: `Descubre qué es ${config.title} y qué lo motiva, en pocas palabras.`
+};
+---
+
+<Layout {...layoutProps}>
+    <main class="p-header mb-20 w-full">
+        <div class="section-md">
+            <h1>Acerca de</h1>
+            <p>
+                <span class="font-medium">{config.title}</span> (se pronuncia <i>/noki/</i>) nace como una marca que busca dar vida a ideas pensadas tanto para ti como para todos. Fundada en 2025 por Gerson Benavides, su propósito es crear, organizar y respaldar proyectos con impacto en distintas áreas de la tecnología.
+            </p>
+            <p>
+                Este sitio presenta desarrollos propios y también ofrece espacio para colaboraciones y servicios personalizados. Desde soluciones web hasta sistemas electrónicos, <span class="font-medium">{config.title}</span> apuesta por la innovación, la utilidad y la cercanía en cada proyecto.
+            </p>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    :root {
+        --color-accent: var(--color-orange);
+    }
+</style>

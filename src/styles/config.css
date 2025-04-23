@@ -1,0 +1,52 @@
+@theme {
+    --color-primary: var(--color-mocha-mauve);
+    --color-secondary: var(--color-mocha-sapphire);
+    --color-accent: var(--color-mocha-peach);
+
+    --color-text: var(--color-mocha-text);
+    --color-text-inverted: var(--color-mocha-crust);
+    --color-subtext: var(--color-mocha-subtext-0);
+    
+    --color-overlay: var(--color-mocha-overlay-0);
+    --color-surface: var(--color-mocha-surface-0);
+
+    --color-base: var(--color-mocha-base);
+    --color-mantle: var(--color-mocha-mantle);
+    --color-crust: var(--color-mocha-crust);
+    
+    --color-red: var(--color-mocha-red);
+    --color-pink: var(--color-mocha-pink);
+    --color-orange: var(--color-mocha-peach);
+    --color-yellow: var(--color-mocha-yellow);
+    --color-green: var(--color-mocha-green);
+    --color-cyan: var(--color-mocha-sky);
+    --color-blue: var(--color-mocha-blue);
+    --color-purple: var(--color-mocha-mauve);
+    
+    --color-success: var(--color-mocha-green);
+    --color-danger: var(--color-mocha-red);
+    --color-warning: var(--color-mocha-yellow);
+    --color-info: var(--color-mocha-blue);
+}
+
+@theme static {
+    --ui-z: 1000;
+
+    --header-z: 100;
+    --header-h: 64px;
+    --header-bg: var(--color-mocha-base);
+    --header-btn-size: 36px;
+    --header-btn-icon-size: 20px;
+    --header-btn-border-radius: 8px;
+}
+
+@theme static {
+    --modals-z: 2000;
+
+    --backdrop-z: 100;
+    --backdrop-bg: #fff;
+    --backdrop-bg-alpha: .3;
+    --backdrop-backdrop-blur: 4px;
+
+    --section-w: 90%;
+}

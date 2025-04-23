@@ -1,0 +1,4 @@
+.ui {
+    position: fixed;
+    z-index: var(--ui-z);
+}

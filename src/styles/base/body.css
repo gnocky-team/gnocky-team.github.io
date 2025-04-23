@@ -1,0 +1,12 @@
+@layer base {
+    body {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 100dvh;
+        color: var(--color-text);
+        background-color: var(--color-base);
+    }
+}

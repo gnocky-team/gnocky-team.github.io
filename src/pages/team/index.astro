@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import config from "@/config/site";
+import { getUrl } from '@/utilities/url/';
+import { type LayoutProps } from '@/layouts/types';
+import Card from '@/components/cards/Info.astro';
+import Layout from '@/layouts/Main.astro';
+import User from 'lucide-solid/icons/user';
+
+
+const authors = await getCollection('authors');
+
+const layoutProps: LayoutProps = {
+    title: 'Equipo',
+    description: `Integrantes del equipo de desarrollo de ${config.title}.`
+};
+---
+
+<Layout {...layoutProps}>
+	<main class="p-header mb-20 w-full">
+        <div class="section-xl">
+            <h1>
+                Equipo
+            </h1>
+            <div class="responsive-grid-lg mt-8">
+                {authors.map(author =>
+                    <Card
+                        title={author.data.name}
+                        Icon={User}
+                        href={getUrl(`/team/${author.id}`)}
+                        tags={author.data.roles}
+                    />
+                )}
+            </div>
+        </div>
+	</main>
+</Layout>
+
+<style>
+    :root {
+        --color-accent: var(--color-blue);
+    }
+</style>

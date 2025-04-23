@@ -1,0 +1,67 @@
+---
+import '@/styles/global.css';
+import { type LayoutProps } from '@/layouts/types';
+import { App } from '@/parts';
+import OpenGraph from '@/parts/meta/OpenGraph.astro';
+import Twitter from '@/parts/meta/Twitter.astro';
+import Schema from '@/parts/meta/Schema.astro';
+import Footer from '@/parts/Footer.astro';
+import { getUrl } from '@/utilities/url/';
+import { formatPageTitle } from '@/utilities/meta/';
+import { getAuthorsNames } from '@/utilities/authors/';
+
+
+interface Props extends LayoutProps {}
+
+const {
+    title,
+    formatTitle = true,
+    description,
+    authors = [],
+    tags = []
+} = Astro.props;
+
+const formattedTitle = formatTitle
+    ? formatPageTitle(title)
+    : title;
+const currentUrl = Astro.url.href;
+const favicon = getUrl('/images/favicon/favicon.svg');
+const favicon16 = getUrl('/images/favicon/favicon-16x16.png');
+const favicon32 = getUrl('/images/favicon/favicon-32x32.png');
+const faviconApple = getUrl('/images/favicon/apple-touch-icon.png');
+const authorNames = getAuthorsNames(authors);
+---
+
+<!doctype html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="robots" content="index, follow" />
+        <meta name="color-scheme" content="dark" />
+        <meta name="description" content={description} />
+        <meta name="author" content={authorNames.join(' / ')} />
+        {(tags.length > 0) && <meta name="keywords" content={tags.join(', ')} />}
+        <meta name="generator" content={Astro.generator} />
+        <OpenGraph {...Astro.props} />
+        <Twitter {...Astro.props} />
+        <link rel="canonical" href={currentUrl} />
+        <link rel="icon" type="image/svg+xml" href={favicon} />
+        <link rel="icon" type="image/png" sizes="32x32" href={favicon32} />
+        <link rel="icon" type="image/png" sizes="16x16" href={favicon16} />
+        <link rel="apple-touch-icon" sizes="180x180" href={faviconApple} />
+        <link rel="manifest" href={getUrl("/site.webmanifest")} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+        <title>{formattedTitle}</title>
+        <Schema {...Astro.props} />
+    </head>
+    <body>
+        <App client:load />
+        <div class="flex-1">
+            <slot />
+        </div>
+        <Footer />
+    </body>
+</html>

@@ -1,0 +1,41 @@
+---
+import { getCollection } from 'astro:content';
+import config from "@/config/site";
+import { getUrl } from '@/utilities/url/';
+import { type LayoutProps } from '@/layouts/types';
+import Card from '@/components/cards/Info.astro';
+import Layout from '@/layouts/Main.astro';
+import Terminal from 'lucide-solid/icons/terminal';
+
+
+const projects = await getCollection('projects');
+
+const layoutProps: LayoutProps = {
+    title: 'Proyectos',
+    description: `Proyectos desarrollados por ${config.title}`
+};
+---
+
+<Layout {...layoutProps}>
+	<main class="p-header mb-20 w-full">
+        <div class="section-xl">
+            <h1>Proyectos</h1>
+            <div class="responsive-grid-lg mt-8">
+                {projects.map(project =>
+                    <Card
+                        title={project.data.name}
+                        Icon={Terminal}
+                        href={getUrl(`/projects/${project.id}`)}
+                        tags={project.data.tags}
+                    />
+                )}
+            </div>
+        </div>
+	</main>
+</Layout>
+
+<style>
+    :root {
+        --color-accent: var(--color-green);
+    }
+</style>

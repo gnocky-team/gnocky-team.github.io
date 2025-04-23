@@ -1,0 +1,102 @@
+---
+import { type LayoutProps } from '@/layouts/types';
+import config from '@/config/site';
+import { getBaseUrl, getUrl } from '@/utilities/url/';
+
+
+interface Props extends LayoutProps {}
+
+const {
+    title,
+    description,
+    authors = [],
+    date,
+    updated,
+    image,
+    categories = [],
+    tags = []
+} = Astro.props;
+
+const baseUrl = getBaseUrl();
+const currentUrl = Astro.url.href;
+const language = 'es';
+const favicon = getUrl('/images/favicon/favicon.svg');
+const authorJson = authors.length > 0
+    ? authors.map(author => ({
+        "@type": "Person",
+        "name": author.data.name,
+        "url": author.data.website
+    }))
+    : {
+        "@type": "Organization",
+        "name": config.title,
+        "url": baseUrl
+    };
+
+const siteJson = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": baseUrl,
+    "url": baseUrl,
+    "inLanguage": language,
+    "name": config.title,
+    "description": config.description
+};
+
+const getPageJson = () => {
+    if (date) {
+        return ({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "@id": currentUrl,
+            "url": currentUrl,
+            "inLanguage": language,
+            "headline": title,
+            "description": description,
+            "author": authorJson,
+            "publisher": {
+                "@type": "Organization",
+                "name": config.title,
+                "logo": {
+                    "@type": "ImageObject",
+                    "url": favicon
+                }
+            },
+            "datePublished": date,
+            ...(updated && { "dateModified": updated }),
+            "image": image || favicon,
+            ...(tags.length > 0 && { "keywords": tags.join(', ') }),
+            ...(categories.length > 0 && {
+                "about": categories.map(name => ({
+                    "@type": "Thing",
+                    "name": name
+                }))
+            }),
+            "mainEntityOfPage": {
+                "@type": "WebPage",
+                "@id": currentUrl
+            }
+        });
+    } else {
+        return ({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "@id": currentUrl,
+            "url": currentUrl,
+            "inLanguage": language,
+            "name": title,
+            "description": description,
+            "isPartOf": {
+                "@type": "WebSite",
+                "@id": baseUrl
+            },
+            ...(tags.length > 0 && { "keywords": tags.join(', ') }),
+        });
+    }
+}
+
+const json = [siteJson, getPageJson()];
+
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(json)}></script>

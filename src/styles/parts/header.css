@@ -1,0 +1,146 @@
+.app__header {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: var(--header-z);
+    height: var(--header-h);
+    color: var(--color-mocha-text);
+    background-color: var(--header-bg);
+    transition: visibility .3s ease-in-out, height .5s ease-in-out, opacity .3s ease-in-out;
+}
+
+.app--header-hidden .app__header {
+    visibility: hidden;
+    opacity: 0;
+}
+
+.app--scroll-past-header .app__header {
+    box-shadow: var(--shadow-md);
+}
+
+.app--collapsible-visible .app__header {
+    height: 100dvh;
+}
+
+    .app__header__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+        height: var(--header-h);
+        width: 90%;
+        max-width: var(--breakpoint-2xl);
+    }
+
+        .app__header__logo {
+            display: block;
+            width: auto;
+            height: calc(var(--header-h) - 48px);
+        }
+
+        .app__header__nav {
+            display: flex;
+            position: relative;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 16px;
+            align-items: center;
+            height: 100%;
+
+            @media (min-width: 1024px) {
+                gap: 24px;
+            }
+        }
+
+            .app__header__nav__list {
+                display: none;
+                flex-direction: row;
+                flex-wrap: nowrap;
+                gap: 24px;
+                align-items: center;
+                height: 100%;
+                font-size: 16px;
+                font-weight: 600;
+
+                @media (min-width: 1024px) {
+                    display: flex;
+                }
+            }
+
+            .app__header__nav__item {
+                display: block;
+                position: relative;
+                transition: color .3s ease-in-out;
+            }
+            
+            .app__header__nav__item:hover {
+                color: #fff;
+            }
+
+            .app__header__nav__item::after {
+                content: "";
+                position: absolute;
+                top: 110%;
+                left: 0;
+                width: 0;
+                height: 3px;
+                background-color: var(--color-mocha-mauve);
+                transition: width .3s ease-in-out;
+            }
+            
+            .app__header__nav__item:hover::after {
+                width: 40%;
+            }
+            
+            .app__header__nav__item:nth-child(1)::after {
+                background-color: var(--color-green);
+            }
+            
+            .app__header__nav__item:nth-child(2)::after {
+                background-color: var(--color-purple);
+            }
+            
+            .app__header__nav__item:nth-child(3)::after {
+                background-color: var(--color-blue);
+            }
+            
+            .app__header__nav__item:nth-child(4)::after {
+                background-color: var(--color-cyan);
+            }
+            
+            .app__header__nav__item:nth-child(5)::after {
+                background-color: var(--color-orange);
+            }
+
+            .app__header__btn {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                width: var(--header-btn-size);
+                height: var(--header-btn-size);
+                border-radius: var(--header-btn-border-radius);
+                transition: color .3s ease-in-out, background-color .3s ease-in-out, box-shadow .3s ease-in-out;
+            }
+
+            .app__header__btn:hover {
+                color: #fff;
+                background-color: rgb(from #fff r g b / .1);
+                box-shadow: var(--shadow-sm);
+            }
+
+            @media (min-width: 1024px) {
+                #header-btn-menu {
+                    display: none;
+                }
+            }
+
+            .app__header__btn__icon {
+                font-size: var(--header-btn-icon-size);
+            }

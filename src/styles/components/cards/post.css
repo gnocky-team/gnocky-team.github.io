@@ -1,0 +1,105 @@
+@layer components {
+    .card-post {
+        display: flex;
+        overflow: hidden;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        width: 100%;
+        color: var(--color-text);
+        background-color: var(--color-mantle);
+        border-radius: 8px;
+        transition: transform .3s ease-in-out, color .3s ease-in-out;
+    }
+
+    .card-post:hover {
+        color: var(--color-accent);
+        transform: scale(1.01);
+    }
+    
+    .card-post__img {
+        aspect-ratio: 16 / 9;
+        display: block;
+        object-fit: cover;
+        object-position: center;
+        width: 100%;
+        max-height: 192px;
+    }
+    
+    .card-post__body {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding: 12px 24px 24px;
+    }
+    
+        .card-post__title {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-top: 0;
+            margin-bottom: 0;
+            width: 100%;
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 1.2;
+            color: inherit;
+        }
+
+        .card-post__tags {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 16px;
+        }
+
+            .card-post__tag {
+                padding: 2px 6px;
+                font-size: 14px;
+                font-weight: 500;
+                color: var(--color-subtext);
+                background-color: var(--color-surface);
+                border-radius: 4px;
+            }
+
+        .card-post__authors {
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            align-items: flex-start;
+            width: 100%;
+            margin-top: 8px;
+            color: var(--color-subtext);
+        }
+        
+            .card-post__authors__icon {
+                flex: none;
+                margin-top: 3px;
+                font-size: 16px;
+            }
+            
+            .card-post__authors__names {
+                font-size: 14px;
+            }
+        
+        .card-post__date {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            gap: 8px;
+            align-items: center;
+            margin-top: 8px;
+            width: 100%;
+            color: var(--color-subtext);
+        }
+        
+            .card-post__date__icon {
+                flex: none;
+                font-size: 16px;
+            }
+            
+            .card-post__date__text {
+                font-size: 14px;
+            }
+}

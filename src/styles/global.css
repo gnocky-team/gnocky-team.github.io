@@ -1,0 +1,13 @@
+@config "../../tailwind.config.js";
+
+@import "tailwindcss";
+@import "./tailwind/index.css";
+
+@import "./config.css";
+@import "./base/index.css";
+
+@import "./parts/index.css";
+@import "./pages/index.css";
+
+@import "./components/index.css";
+@import "./utilities/index.css";

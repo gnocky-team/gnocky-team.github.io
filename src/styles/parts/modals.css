@@ -1,0 +1,4 @@
+.modals {
+    position: fixed;
+    z-index: var(--modals-z);
+}

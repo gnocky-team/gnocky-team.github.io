@@ -1,0 +1,37 @@
+---
+import { getCollection, render } from 'astro:content';
+import { type LayoutProps } from '@/layouts/types';
+import Layout from '@/layouts/Main.astro';
+
+
+export async function getStaticPaths() {
+    const authors = await getCollection('authors');
+    return authors.map(author => ({
+        params: { id: author.id },
+        props: { author },
+    }));
+}
+
+const { author } = Astro.props;
+const { Content } = await render(author);
+
+const layoutProps: LayoutProps = {
+    title: author.data.name,
+    description: author.data.description
+};
+---
+
+<Layout {...layoutProps}>
+    <main class="p-header mb-20 w-full">
+        <div class="section-md">
+            <h1>{author.data.name}</h1>
+            <Content />
+        </div>
+    </main>
+</Layout>
+
+<style>
+    :root {
+        --color-accent: var(--color-blue);
+    }
+</style>

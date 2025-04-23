@@ -1,0 +1,48 @@
+---
+import config from '@/config/site';
+import { getUrl } from '@/utilities/url/';
+import Layout from '@/layouts/Main.astro';
+import { type LayoutProps } from '@/layouts/types';
+import AppWindowMac from 'lucide-solid/icons/app-window-mac';
+import NotepadText from 'lucide-solid/icons/notepad-text';
+import Mail from 'lucide-solid/icons/mail';
+import Heart from 'lucide-solid/icons/heart';
+
+
+const layoutProps: LayoutProps = {
+    title: config.title,
+	formatTitle: false,
+    description: config.description
+};
+---
+
+<Layout {...layoutProps}>
+	<main class="p-header mb-20 w-full">
+		<div class="page-home__hero section-xl">
+			<div class="page-home__hero__body">
+				<h1 class="page-home__hero__title">
+					Desarrollos que dan vida a ideas pensadas tanto para ti como para todos.
+				</h1>
+				<div class="page-home__hero__btns">
+					<a href={getUrl("/projects")} class="page-home__hero__btn bg-gradient-to-br from-accent to-primary">
+						<AppWindowMac size="1em" class="text-md mb-0.5" />
+						<div>Proyectos</div>
+					</a>
+					<a href={getUrl("/blog")} class="page-home__hero__btn bg-gradient-to-br from-yellow to-primary">
+						<NotepadText size="1em" class="text-md mb-0.5" />
+						<div>Blog</div>
+					</a>
+					<a href={getUrl("/contact")} class="page-home__hero__btn bg-gradient-to-br from-green to-primary">
+						<Mail size="1em" class="text-md mb-0.5" />
+						<div>Contacto</div>
+					</a>
+					<a href={getUrl("/about")} class="page-home__hero__btn bg-gradient-to-br from-blue to-primary">
+						<Heart size="1em" class="text-md mb-0.5" />
+						<div>Donar</div>
+					</a>
+				</div>
+			</div>
+			<img src={getUrl("/images/2025/retro-computer.svg")} class="page-home__hero__img" />
+		</div>
+	</main>
+</Layout>

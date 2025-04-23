@@ -1,0 +1,40 @@
+---
+import { type LayoutProps } from '@/layouts/types';
+import config from '@/config/site';
+import { getAuthorsNames } from '@/utilities/authors/';
+
+
+interface Props extends LayoutProps {}
+
+const {
+    title,
+    description,
+    authors = [],
+    date,
+    updated,
+    image,
+    categories = [],
+    tags = []
+} = Astro.props;
+
+const currentUrl = Astro.url.href;
+const authorNames = getAuthorsNames(authors);
+---
+
+<meta property="og:type" content={date ? "article" : "website"} />
+<meta property="og:url" content={currentUrl} />
+<meta property="og:site_name" content={config.title} />
+<meta property="og:locale" content="es_ES" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{image && <meta property="og:image" content={image} />}
+{date && (
+    <>
+    <meta property="article:published_time" content={date} />
+    {updated && <meta property="article:modified_time" content={updated} />}
+    {authorNames.map(author => <meta property="article:author" content={author} />)}
+    {(categories.length > 0) &&
+        <meta property="article:section" content={categories[0]} />}
+    {tags.map(tag => <meta property="article:tag" content={tag} />)}
+    </>
+)}

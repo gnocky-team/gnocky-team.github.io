@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import config from '@/config/site';
+import { getUrl } from '@/utilities/url/';
+import { getAuthors } from '@/utilities/authors/';
+import { type LayoutProps } from '@/layouts/types';
+import Layout from '@/layouts/Main.astro';
+import Card from '@/components/cards/Post.astro';
+
+
+const posts = await getCollection('blog');
+
+const layoutProps: LayoutProps = {
+    title: 'Blog',
+    description: `Publicaciones del equipo de desarrollo de ${config.title}.`
+};
+---
+
+<Layout {...layoutProps}>
+    <main class="p-header mb-20 w-full">
+        <div class="section-xl">
+            <h1>Blog</h1>
+            <div class="responsive-grid-lg mt-8">
+                {posts.map(post => {
+                    const authorIds = post.data.authors.map(author => author.id);
+                    return (
+                        <Card
+                            title={post.data.title}
+                            image={post.data.image}
+                            href={getUrl(`/blog/${post.id}`)}
+                            authors={getAuthors(authorIds)}
+                            tags={post.data.tags}
+                        />
+                    );
+                })}
+            </div>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    :root {
+        --color-accent: var(--color-purple);
+    }
+</style>

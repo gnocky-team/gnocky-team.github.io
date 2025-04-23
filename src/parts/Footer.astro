@@ -1,0 +1,13 @@
+---
+import siteConfig from '@/config/site';
+import { CurrentYear } from '@/components/CurrentYear';
+---
+
+<footer class="app__footer">
+    <div class="section-xl">
+        Copyright ©
+        <CurrentYear client:load />
+        {siteConfig.title}.
+        Todos los derechos reservados.
+    </div>
+</footer>

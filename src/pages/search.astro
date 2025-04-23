@@ -1,0 +1,22 @@
+---
+import { type LayoutProps } from '@/layouts/types';
+import Layout from '@/layouts/Main.astro';
+import SearchInput from "astro-pagefind/components/Search";
+
+const layoutProps: LayoutProps = {
+    title: 'Buscar',
+    description: 'Buscar en el sitio.'
+};
+---
+
+<Layout {...layoutProps}>
+	<main class="p-header mb-20">
+		<div class="section-md my-10">
+			<SearchInput
+				id="search"
+				className="pagefind-ui"
+				uiOptions={{ showImages: false }}
+			/>
+		</div>
+	</main>
+</Layout>

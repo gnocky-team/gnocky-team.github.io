@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 564 84" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-0.0003,96)">
+        <g>
+            <g>
+                <path d="M24,-12L24,-24L12,-24L12,-36L0,-36L0,-72L12,-72L12,-84L24,-84L24,-96L84,-96L84,-84L36,-84L36,-72L24,-72L24,-36L36,-36L36,-24L60,-24L60,-48L48,-48L48,-60L84,-60L84,-12L24,-12Z" style="fill:rgb(205,214,244);fill-rule:nonzero;"/>
+                <path d="M96,-12L96,-96L120,-96L120,-84L132,-84L132,-72L144,-72L144,-60L156,-60L156,-96L180,-96L180,-12L156,-12L156,-36L144,-36L144,-48L132,-48L132,-60L120,-60L120,-12L96,-12Z" style="fill:rgb(205,214,244);fill-rule:nonzero;"/>
+                <path d="M204,-12L204,-24L192,-24L192,-84L204,-84L204,-96L264,-96L264,-84L276,-84L276,-24L264,-24L264,-12L204,-12ZM216,-24L252,-24L252,-84L216,-84L216,-24Z" style="fill:rgb(205,214,244);fill-rule:nonzero;"/>
+                <path d="M312,-12L312,-24L300,-24L300,-36L288,-36L288,-72L300,-72L300,-84L312,-84L312,-96L360,-96L360,-84L372,-84L372,-72L348,-72L348,-84L324,-84L324,-72L312,-72L312,-36L324,-36L324,-24L348,-24L348,-36L372,-36L372,-24L360,-24L360,-12L312,-12Z" style="fill:rgb(205,214,244);fill-rule:nonzero;"/>
+                <path d="M384,-12L384,-96L408,-96L408,-60L420,-60L420,-72L432,-72L432,-84L444,-84L444,-96L468,-96L468,-84L456,-84L456,-72L444,-72L444,-60L432,-60L432,-48L444,-48L444,-36L456,-36L456,-24L468,-24L468,-12L432,-12L432,-24L420,-24L420,-36L408,-36L408,-12L384,-12Z" style="fill:rgb(205,214,244);fill-rule:nonzero;"/>
+                <path d="M516,-12L516,-48L504,-48L504,-60L492,-60L492,-96L516,-96L516,-60L540,-60L540,-96L564,-96L564,-60L552,-60L552,-48L540,-48L540,-12L516,-12Z" style="fill:rgb(205,214,244);fill-rule:nonzero;"/>
+            </g>
+        </g>
+    </g>
+</svg>

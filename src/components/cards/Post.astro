@@ -1,0 +1,43 @@
+---
+import { type CardPostProps } from './types';
+import AuthorsText from '@/components/authors/Text.astro';
+import PenTool from 'lucide-solid/icons/pen-tool';
+import Clock from 'lucide-solid/icons/clock';
+
+
+interface Props extends CardPostProps {}
+
+const { title, image, href, authors, tags } = Astro.props;
+---
+
+<a href={href}>
+    <article class="card-post">
+        {image && <img
+            src={image}
+            alt="Post thumbnail"
+            class="card-post__img"
+        />}
+        <div class="card-post__body">
+            <h3 class="card-post__title">
+                {title}
+            </h3>
+            <ul class="card-post__tags">
+                {tags.map((tag) => (
+                    <li class="card-post__tag">
+                        {tag}
+                    </li>
+                ))}
+            </ul>
+            <div class="card-post__authors">
+                <PenTool size="1em" class="card-post__authors__icon" />
+                <div class="card-post__authors__names">
+                    <AuthorsText authors={authors} />
+                </div>
+            </div>
+            <div class="card-post__date">
+                <Clock size="1em" class="card-post__date__icon" />
+                <time class="card-post__date__text">08.12.2014</time>
+            </div>
+        </div>
+    </article>
+</a>

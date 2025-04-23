@@ -1,0 +1,46 @@
+---
+import { getCollection, render } from 'astro:content';
+import { type LayoutProps } from '@/layouts/types';
+import Layout from '@/layouts/Main.astro';
+import { getAuthors } from '@/utilities/authors';
+
+
+export async function getStaticPaths() {
+    const posts = await getCollection('blog');
+    return posts.map(post => ({
+        params: { id: post.id },
+        props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+const authorIds = post.data.authors.map(author => author.id);
+const authors = getAuthors(authorIds);
+
+const layoutProps: LayoutProps = {
+    title: post.data.title,
+    description: post.data.description,
+    date: post.data.date.toString(),
+    updated: post.data.updated?.toString(),
+    authors: authors,
+    image: post.data.image,
+    categories: post.data.categories,
+    tags: post.data.tags
+};
+---
+
+<Layout {...layoutProps}>
+    <main class="p-header mb-20 w-full">
+        <div class="section-md">
+            <h1>{post.data.title}</h1>
+            <Content />
+        </div>
+    </main>
+</Layout>
+
+<style>
+    :root {
+        --color-accent: var(--color-purple);
+    }
+</style>

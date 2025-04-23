@@ -1,0 +1,22 @@
+---
+import { type CardInfoProps } from './types';
+
+
+interface Props extends CardInfoProps {}
+
+const { title, Icon, href, tags } = Astro.props;
+---
+
+<a href={href} class="card-info">
+    <header class="card-info__header">
+        <h3 class="card-info__title">
+            {title}
+        </h3>
+        <Icon class="card-info__icon" size="1em" />
+    </header>
+    <ul class="card-info__tags">
+        {tags.map((tag) => (
+            <li class="card-info__tag">{tag}</li>
+        ))}
+    </ul>
+</a>

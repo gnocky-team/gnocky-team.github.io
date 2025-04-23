@@ -1,0 +1,1 @@
+import{g as a,p as s,i as n,t as l}from"./web.RUOL9Jrq.js";var m=l("<span>");const p=({class:t})=>{const r=new Date().getFullYear().toString();return(()=>{var e=a(m);return s(e,t),n(e,r),e})()};export{p as CurrentYear};

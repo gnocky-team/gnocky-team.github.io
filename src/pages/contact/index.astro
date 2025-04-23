@@ -1,0 +1,41 @@
+---
+import config from "@/config/site";
+import { type LayoutProps } from '@/layouts/types';
+import Layout from '@/layouts/Main.astro';
+
+const layoutProps: LayoutProps = {
+    title: 'Contacto',
+    description: `Formas de comunicarte con ${config.title}.`,
+};
+---
+
+<Layout {...layoutProps}>
+	<main class="p-header mb-20 w-full">
+		<div class="section-md">
+            <h1>Contacto</h1>
+            <p>
+                ¿Necesitas contactarnos? Puedes hacerlo a través de las siguientes redes sociales.
+            </p>
+            <div class="flex flex-row wrap gap-3">
+                <a href="mailto:gersonbdev@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <img
+                        src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"
+                        class="w-auto h-8"
+                    />
+                </a>
+                <a href="https://github.com/gersonbenavides/" target="_blank" rel="noopener noreferrer">
+                    <img
+                        src="https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white"
+                        class="w-auto h-8"
+                    />
+                </a>
+            </div>
+        </div>
+	</main>
+</Layout>
+
+<style>
+    :root {
+        --color-accent: var(--color-cyan);
+    }
+</style>

@@ -1,0 +1,32 @@
+---
+import { type Author } from "@/data/types";
+import { getUrl } from "@/utilities/url";
+import { getTeamName } from "@/utilities/authors/";
+
+
+interface Props {
+    authors: Author[];
+    classList?: string;
+    classItem?: string;
+}
+
+const { authors, classList, classItem } = Astro.props;
+---
+
+<ul class={classList}>
+    {authors.length > 0 ? (
+        authors.map((author) => (
+            <li>
+                <a href={getUrl(`/team/${author.id}`)} class={classItem}>
+                    {author.data.name}
+                </a>
+            </li>
+        ))
+    ) : (
+        <li>
+            <a href={getUrl("/")} class={classItem}>
+                {getTeamName()}
+            </a>
+        </li>
+    )}
+</ul>
