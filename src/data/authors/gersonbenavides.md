@@ -57,9 +57,9 @@ En lo personal, disfruto de la lectura, la filosofía, la música, el ajedrez y 
 ### Redes sociales
 
 <div class="flex flex-row flex-wrap gap-3">
-    <a href="mailto:gersonbdev@gmail.com" target="_blank" rel="noopener noreferrer">
+    <a href="mailto:gersonbenavides@ik.me" target="_blank" rel="noopener noreferrer">
         <img
-            src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"
+            src="https://img.shields.io/badge/mail-D14836?style=for-the-badge&logo=gmail&logoColor=white"
             class="w-auto h-8"
         />
     </a>
@@ -69,19 +69,19 @@ En lo personal, disfruto de la lectura, la filosofía, la música, el ajedrez y 
             class="w-auto h-8"
         />
     </a>
-    <a href="https://twitter.com/gersonbdev/" target="_blank" rel="noopener noreferrer">
+    <a href="https://x.com/gersonbenav/" target="_blank" rel="noopener noreferrer">
         <img
             src="https://img.shields.io/badge/X-%23000000.svg?style=for-the-badge&logo=X&logoColor=white"
             class="w-auto h-8"
         />
     </a>
-    <a href="https://www.facebook.com/gersonbdev/" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.facebook.com/gersonbenavid/" target="_blank" rel="noopener noreferrer">
         <img
             src="https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=Facebook&logoColor=white"
             class="w-auto h-8"
         />
     </a>
-    <a href="https://www.instagram.com/gersonbdev/" target="_blank" rel="noopener noreferrer">
+    <a href="https://www.instagram.com/gersonbenavid/" target="_blank" rel="noopener noreferrer">
         <img
             src="https://img.shields.io/badge/Instagram-%23E4405F.svg?style=for-the-badge&logo=Instagram&logoColor=white"
             class="w-auto h-8 w"
